@@ -1,0 +1,22 @@
+.Banner {
+    min-height: 400px;
+    position: relative;
+    z-index: 10;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 60px;
+    flex-direction: column !important;
+    display: flex !important;
+}
+
+.Banner h1 {
+    font-size: 80px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.Banner a {
+    padding: 13px 27px;
+    font-size: 16px;
+}

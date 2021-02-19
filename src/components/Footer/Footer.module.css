@@ -1,0 +1,44 @@
+.Footer {
+    font-size: 13px;
+    color: #59626D;
+}
+
+.FooterInner {
+    border-top: 1px solid #D5DCE5;
+    padding: 30px 0;
+}
+
+.FooterItem:not(:last-child) {
+    border-bottom: 1px solid #D5DCE5;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.FooterNav {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.FooterNav li {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+.FooterNav li:first-child {
+    padding-left: 0;
+}
+
+.FooterNav li a {
+    font-size: 13px;
+    display: block;
+    color: #59626D;
+    padding: .5rem 0;
+}
+
+.FooterNav li a:hover {
+    color: #424951;
+}

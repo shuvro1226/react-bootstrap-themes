@@ -1,0 +1,36 @@
+.ThemesHolder:not(:last-child) {
+    margin-bottom: 35px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D5DCE5;
+}
+
+.ThemesHolder ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ThemesCardHeading {
+    margin-bottom: 30px;
+    align-items: center !important;
+    justify-content: space-between !important;
+    display: flex !important;
+}
+
+.ThemesCardHeading a {
+    margin-left: 20px;
+}
+
+.ThemesCardHeading a:hover {
+    border-color: #614092;
+    background: #614092;
+    color: #ffffff;
+}
+
+.ThemesCardHeading p {
+    margin-bottom: 0;
+}
+
+.ThemeCardsTitle {
+    margin-bottom: 0;
+    font-size: 20px;
+}

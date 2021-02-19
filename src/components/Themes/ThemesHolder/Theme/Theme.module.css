@@ -1,0 +1,89 @@
+.Card {
+    border: none;
+    font-size: 14px;
+}
+
+.CardBody {
+    position: relative;
+    display: block;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 25px 20px -20px rgb(0 0 0 / 30%), 0 0 15px rgb(0 0 0 / 6%);
+    box-shadow: 0 25px 20px -20px rgb(0 0 0 / 30%), 0 0 15px rgb(0 0 0 / 6%);
+    padding: 0;
+}
+
+.CardBody a:last-child {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.CardBody img {
+    border-radius: 8px;
+    width: 100% !important;
+    height: auto;
+    max-width: 100%;
+}
+
+.CardFooter {
+    padding: 15px 8px;
+    color: #343434;
+    align-items: center !important;
+    justify-content: space-between !important;
+    display: flex !important;
+    background: none;
+}
+
+.CardFooterItem {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.CardTitle,
+.CardTitle:hover {
+    font-weight: 500;
+    color: inherit;
+    margin-right: 0.25rem !important;
+}
+
+.CategoriesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.CategoriesList a {
+    color: #838e95;
+}
+
+.CategoriesList a:hover {
+    color: #343434;
+}
+
+.Rating {
+    display: flex !important;
+    padding-left: 0;
+    list-style: none;
+}
+
+.RatingItem {
+    font-family: "bootstrap-themes";
+    margin-left: .1rem;
+    color: #E1E1E1;
+    font-size: 15px;
+}
+
+.RatingItem:before {
+    content: '\e806';
+}
+
+.RatingItemActive {
+    color: #F7DE45;
+}
+
+.CardFooterItem>*:not(:last-child) {
+    margin-bottom: .1rem;
+}

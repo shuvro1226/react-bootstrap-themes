@@ -1,0 +1,20 @@
+.NavBar {
+    border-bottom: 1px solid #E5E9EF;
+}
+
+.NavBarBrand {
+    color: #202020;
+    font-size: 16px;
+    padding: 8.5px 0;
+    font-weight: 500;
+    margin-top: -1px;
+}
+
+.NavBar .NavLink {
+    color: #838E95;
+    font-size: 16px;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    transition: 250ms;
+    touch-action: manipulation;
+}
