@@ -1,37 +1,38 @@
 import React from 'react';
 import { Image, Card } from 'react-bootstrap';
+import ReactStars from 'react-rating-stars-component';
 
 import styles from './Theme.module.css';
 
 const Theme = (props) => {
-    const ratingItemStyles = [
-        styles.RatingItem,
-        styles.RatingItemActive,
-        'text-right'
-    ];
+
+    let livePreviewClasses = "btn btn-brand btn-sm";
+    if (!props.showPrevBtn) {
+        livePreviewClasses += " d-none";
+    }
 
     return (
         <Card className={styles.Card}>
             <Card.Body className={styles.CardBody}>
                 <Card.Text>
-                    <Card.Link href="https://themes.getbootstrap.com/product/folio-creative-agency-portfolio-theme/">
-                        <Image src="https://themes.getbootstrap.com/wp-content/uploads/2021/02/screenshot-540x405.jpg" />
+                    <Card.Link href="#">
+                        <Image src={props.theme.image_path} />
                     </Card.Link>
 
-                    <Card.Link className="btn btn-brand btn-sm" href="https://themes.getbootstrap.com/preview/?theme_id=67593">
+                    <Card.Link className={livePreviewClasses} href="#">
                         Live preview
                     </Card.Link>
                 </Card.Text>
             </Card.Body>
             <Card.Footer className={styles.CardFooter}>
                 <div className={styles.CardFooterItem}>
-                    <Card.Link className={styles.CardTitle} href="https://themes.getbootstrap.com/product/folio-creative-agency-portfolio-theme/">
-                        Folio – Creative Agency Portfolio Theme
+                    <Card.Link className={styles.CardTitle} href="#">
+                        {props.theme.name} – {props.theme.description}
                     </Card.Link>
                     <ul className={styles.CategoriesList}>
                         <li>
-                            <Card.Link className="d-block" href="https://themes.getbootstrap.com/product-category/landing-corporate/">
-                                Landing &amp; Corporate
+                            <Card.Link className="d-block" href="#">
+                                {props.theme.category}
                             </Card.Link>
                         </li>
                     </ul>
@@ -40,16 +41,17 @@ const Theme = (props) => {
                     <p className="text-right">
                         <span className="amount">
                             <span className="woocommerce-Price-currencySymbol">$</span>
-                            59.00
+                            {props.theme.price.toFixed(2)}
                         </span>
                     </p>
-                    <ul className={styles.Rating}>
-                        <li className={ratingItemStyles.join(" ")}>&#9734;</li>
-                        <li className={ratingItemStyles.join(" ")}>&#9734;</li>
-                        <li className={ratingItemStyles.join(" ")}>&#9734;</li>
-                        <li className={ratingItemStyles.join(" ")}>&#9734;</li>
-                        <li className={ratingItemStyles.join(" ")}>&#9734;</li>            
-                    </ul>
+                    <ReactStars
+                        classNames={styles.Rating}
+                        count={5}
+                        value={props.theme.rating}
+                        size={18}
+                        activeColor="#F7DE45"
+                        isHalf={true}
+                    />
                 </div>
             </Card.Footer>
         </Card>

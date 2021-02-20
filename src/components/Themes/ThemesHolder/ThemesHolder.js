@@ -1,32 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Theme from './Theme/Theme';
 import { Row, Col } from 'react-bootstrap';
 
 import styles from './ThemesHolder.module.css';
 
-class ThemesHolder extends Component {
-    render() {
-        return (
-            <div className={styles.ThemesHolder}>
-                <div className={styles.ThemesCardHeading}>
-                    <div>
-                        <h5 className={styles.ThemeCardsTitle}>Latest</h5>
-                        <p className="text-gray-soft">Most recently added to our collection.</p>
-                    </div>
-                    <a className="btn btn-outline-brand btn-sm" href="#view-all">View all</a>
-                </div>
-                <Row as="ul">
-                    <Col as="li" className="col-6">
-                        <Theme />
-                    </Col>
-                    <Col as="li" className="col-6">
-                        <Theme />
-                    </Col>
-                </Row>
-                <a className="btn btn-brand btn-block d-md-none" href="#view-all-latest">View all latest themes</a>
-            </div>
-        )
+const ThemesHolder = (props) => {
+    let viewAllBtn = null;
+    if (props.showViewAll) {
+        viewAllBtn = <a className="btn btn-outline-brand btn-sm" href="#view-all">View all</a>
     }
+
+    let themeCards = null;
+    if (props.themes) {
+        themeCards = props.themes.map((theme, index) => {
+            return <Col as="li" className="col-6" key={index + 1}>
+                <Theme theme={theme} />
+            </Col>;
+        });
+    }
+
+    return (
+        <div className={styles.ThemesHolder}>
+            <div className={styles.ThemesCardHeading}>
+                <div>
+                    <h5 className={styles.ThemeCardsTitle}>{props.title}</h5>
+                    <p className="text-gray-soft">{props.shortDesc}</p>
+                </div>
+                {viewAllBtn}
+            </div>
+            <Row as="ul">
+                {themeCards}
+            </Row>
+            <a className="btn btn-brand btn-block d-md-none" href="#view-all-latest">View all latest themes</a>
+        </div>
+    )
 }
 
 export default ThemesHolder;

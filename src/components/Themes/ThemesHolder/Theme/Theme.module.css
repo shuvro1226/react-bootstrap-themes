@@ -1,6 +1,7 @@
 .Card {
     border: none;
     font-size: 14px;
+    margin-bottom: 1rem;
 }
 
 .CardBody {
@@ -65,23 +66,7 @@
 
 .Rating {
     display: flex !important;
-    padding-left: 0;
-    list-style: none;
-}
-
-.RatingItem {
-    font-family: "bootstrap-themes";
-    margin-left: .1rem;
-    color: #E1E1E1;
-    font-size: 15px;
-}
-
-.RatingItem:before {
-    content: '\e806';
-}
-
-.RatingItemActive {
-    color: #F7DE45;
+    line-height: 1;
 }
 
 .CardFooterItem>*:not(:last-child) {
