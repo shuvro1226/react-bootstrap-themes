@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Container } from 'react-bootstrap';
 
+import { categories } from '../../config/categories';
+
 import styles from './Navigationbar.module.css';
 
 class NavigationBar extends Component {   
@@ -12,24 +14,32 @@ class NavigationBar extends Component {
             "order-2",
             styles.FormNavBar
         ];
+
+        let categoriesList = null;
+        if (categories) {
+            categoriesList = categories.map((category, index) => (
+                <NavDropdown.Item 
+                    key={index+1}
+                    className={styles.NavDropdownItem} 
+                    onClick={() => this.props.filterByCategories(category.displayText)} 
+                    href={"#" + category.value}>
+                    {category.displayText}
+                </NavDropdown.Item>
+            ));
+        }
         
         return (
             <Navbar expand="lg" className={styles.NavBar}>
                 <Container>
-                    <Navbar.Brand className={styles.NavBarBrand} href="#home">Bootstrap Themes</Navbar.Brand>
+                    <Navbar.Brand className={styles.NavBarBrand} onClick={() => this.props.filterByCategories('')} href="#home">Bootstrap Themes</Navbar.Brand>
                     <Navbar.Toggle className={styles.NavBarToggler} aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav order-2">
+                    <Navbar.Collapse id="navbar-collapse">
                         <Form className={formNavClasses.join(" ")} inline>
-                            <FormControl type="text" placeholder="Search" className="" onClick={this.onOpenSearchBox} />
+                            <FormControl type="text" placeholder="Search" value={this.props.searchText} onChange={(event) => this.props.searchThemes(event)} />
                         </Form>
-                        <Nav className="mr-auto">
+                        <Nav className="mr-auto order-1">
                             <NavDropdown title="Categories" className={styles.NavLink}>
-                                <NavDropdown.Item className={styles.NavDropdownItem} href="#admin-and-dashboard">Admin & Dashboard</NavDropdown.Item>
-                                <NavDropdown.Item className={styles.NavDropdownItem} href="#landing-and-corporate">Landing & Corporate</NavDropdown.Item>
-                                <NavDropdown.Item className={styles.NavDropdownItem} href="#application">Application</NavDropdown.Item>
-                                <NavDropdown.Item className={styles.NavDropdownItem} href="#e-commerce-and-retail">E-Commerce & Retail</NavDropdown.Item>
-                                <NavDropdown.Item className={styles.NavDropdownItem} href="#portfolio-and-blog">Portfolio & Blog</NavDropdown.Item>
-                                <NavDropdown.Item className={styles.NavDropdownItem} href="#speciality">Speciality</NavDropdown.Item>
+                                {categoriesList}
                             </NavDropdown>
                             <Nav.Link href="#why-us" className={styles.NavLink}>Why Our Themes?</Nav.Link>
                             <Nav.Link href="#the-guide" className={styles.NavLink}>The Guide</Nav.Link>                            

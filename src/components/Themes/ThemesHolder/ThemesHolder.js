@@ -17,13 +17,22 @@ const ThemesHolder = (props) => {
 
     let themeCards = null;
     if (props.themes) {
-        themeCards = props.themes.map((theme, index) => {
-            return <Col as="li" className="col-6" key={index + 1}>
-                <Theme theme={theme}
-                    mouseIn={() => props.mouseIn(index, props.themeState)}
-                    mouseOut={() => props.mouseOut(index, props.themeState)} />
-            </Col>;
-        });
+        themeCards = props.themes.reduce((themes, theme, index) => {
+            if (theme.visible) {
+                const themeCard = <Col as="li" className="col-6" key={index + 1}>
+                    <Theme theme={theme}
+                        mouseIn={() => props.mouseIn(index, props.themeState)}
+                        mouseOut={() => props.mouseOut(index, props.themeState)} />
+                </Col>;
+                themes.push(themeCard);
+            }
+            return themes;
+        }, []);
+    }
+
+    let themeCardsHolder = <Col><p>No <b>{props.title}</b> themes are found under applied filter.</p></Col>
+    if (themeCards && themeCards.length > 0) {
+        themeCardsHolder = themeCards;
     }
 
     return (
@@ -36,7 +45,7 @@ const ThemesHolder = (props) => {
                 {viewAllBtn}
             </div>
             <Row as="ul">
-                {themeCards}
+                {themeCardsHolder}
             </Row>
             {viewAllLatestBtn}
         </div>

@@ -3,22 +3,33 @@ import { Container } from 'react-bootstrap';
 
 import ThemesHolder from './ThemesHolder/ThemesHolder';
 import Banner from '../Banner/Banner';
-import { themesDefaultConfig } from '../../config/themes';
 import moment from 'moment';
 
 import styles from './Themes.module.css';
 
 class Themes extends Component {
     state = {
-        themes: themesDefaultConfig,
         latestThemes: null,
         popularThemes: null
     }
 
     componentDidMount() {
         // Sort themes by 'rating' and 'added_at' to get the Latest and popular themes
+        if (this.props.themes) {
+            this.onUpdateThemes();
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        // Sort themes by 'rating' and 'added_at' to get the Latest and popular themes when themes state is updated
+        if (this.props.themes && this.props.searchText !== prevProps.searchText) {
+            this.onUpdateThemes();
+        }
+    }
+
+    onUpdateThemes = () => {
         let latestThemes = [
-            ...this.state.themes
+            ...this.props.themes
         ];
         latestThemes.sort((a,b) => {
             if (moment(a.added_at).isBefore(b.added_at)) {
