@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Card } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 
+import * as themeImage from '../../../../assets/img/themes/themes';
 import styles from './Theme.module.css';
 
 const Theme = (props) => {
@@ -24,7 +25,7 @@ const Theme = (props) => {
                 onMouseOut={props.mouseOut}>
                 <Card.Text>
                     <Card.Link href="#">
-                        <Image src={props.theme.image_path} />
+                        <Image src={themeImage[props.theme.image_path]} />
                     </Card.Link>
 
                     <Card.Link className={livePreviewClasses} href="#">
