@@ -11,10 +11,6 @@ body {
     letter-spacing: -.01em;
 }
 
-.dropdown-toggle::after {
-    display: none;
-}
-
 h1,
 h2,
 h3,
@@ -97,4 +93,39 @@ h5,
 
 p:last-child {
     margin-bottom: 0;
+}
+
+.order-1 {
+    order: 1;
+}
+
+.order-2 {
+    order: 2;
+}
+
+.order-3 {
+    order: 3;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background: #f5f6f9;
+    color: #2C2C2C;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #E5E9EF;
+}
+
+@media (max-width: 767px) {
+    h5,
+    .h5 {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown-toggle::after {
+        display: none;
+    }
 }

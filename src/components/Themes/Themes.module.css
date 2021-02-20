@@ -3,3 +3,9 @@
     padding: 65px 0;
     display: block;
 }
+
+@media (max-width: 767px) {
+    .Themes {
+        padding: 2rem 0;
+    }
+}

@@ -67,3 +67,17 @@
 .FooterFormGroup {
     margin-bottom: 1.5rem;
 }
+
+@media (max-width: 991px) {
+    .FooterItem button {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .FooterNav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

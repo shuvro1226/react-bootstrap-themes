@@ -11,6 +11,12 @@ const Theme = (props) => {
         livePreviewClasses += " d-none";
     }
 
+    const ratingClasses = [
+        "d-none",
+        "d-md-block",
+        styles.Rating
+    ];
+
     return (
         <Card className={styles.Card}>
             <Card.Body className={styles.CardBody}
@@ -40,14 +46,14 @@ const Theme = (props) => {
                     </ul>
                 </div>
                 <div className={styles.CardFooterItem}>
-                    <p className="text-right">
+                    <p>
                         <span className="amount">
                             <span className="woocommerce-Price-currencySymbol">$</span>
                             {props.theme.price.toFixed(2)}
                         </span>
                     </p>
                     <ReactStars
-                        classNames={styles.Rating}
+                        classNames={ratingClasses.join(" ")}
                         count={5}
                         value={props.theme.rating}
                         size={18}

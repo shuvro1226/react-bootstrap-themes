@@ -7,7 +7,12 @@ import styles from './ThemesHolder.module.css';
 const ThemesHolder = (props) => {
     let viewAllBtn = null;
     if (props.showViewAll) {
-        viewAllBtn = <a className="btn btn-outline-brand btn-sm" href="#view-all">View all</a>
+        viewAllBtn = <a className="btn btn-outline-brand btn-sm d-none d-md-block" href="#view-all">View all</a>
+    }
+
+    let viewAllLatestBtn = null;
+    if (props.title === 'Latest') {
+        viewAllLatestBtn = <a className="btn btn-brand d-block d-md-none" href="#view-all-latest">View all latest themes</a>
     }
 
     let themeCards = null;
@@ -33,7 +38,7 @@ const ThemesHolder = (props) => {
             <Row as="ul">
                 {themeCards}
             </Row>
-            <a className="btn btn-brand btn-block d-md-none" href="#view-all-latest">View all latest themes</a>
+            {viewAllLatestBtn}
         </div>
     )
 }

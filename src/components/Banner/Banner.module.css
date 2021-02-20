@@ -30,3 +30,13 @@
     border-radius: 0.25rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+@media (max-width: 991px) {
+    .Banner {
+        min-height: 280px;
+        padding-top: 60px;
+    }
+    .Banner h1 {
+        font-size: 42px;
+    }
+}

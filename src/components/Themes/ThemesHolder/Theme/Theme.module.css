@@ -31,16 +31,18 @@
 .CardFooter {
     padding: 15px 8px;
     color: #343434;
-    align-items: center !important;
-    justify-content: space-between !important;
-    display: flex !important;
-    background: none;
+    background-color: #fff;
+    border: transparent;
 }
 
-.CardFooterItem {
+.CardFooterItem:first-child {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.CardFooterItem>*:not(:last-child) {
+    margin-bottom: .1rem;
 }
 
 .CardTitle,
@@ -65,10 +67,28 @@
 }
 
 .Rating {
-    display: flex !important;
+    display: flex;
     line-height: 1;
 }
 
 .CardFooterItem>*:not(:last-child) {
     margin-bottom: .1rem;
+}
+
+@media (max-width: 991px) {
+    .CardFooter {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+}
+
+@media (min-width: 576px) {
+    .CardFooter {
+        align-items: center !important;
+        justify-content: space-between !important;
+        display: flex !important;
+    }
+    .CardFooterItem:last-child {
+        text-align: right;
+    }
 }
