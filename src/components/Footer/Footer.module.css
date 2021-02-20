@@ -14,6 +14,27 @@
     margin-bottom: 20px;
 }
 
+.FooterItem button {
+    padding: 10.5px 27px;
+    font-size: 14px;
+}
+
+.FooterItem input {
+    min-width: 250px;
+    background: #EDF0F5;
+    border-color: #EDF0F5;
+    height: 40px;
+    color: #272727;
+    font-size: 14px;
+}
+
+.FooterItem input:focus {
+    border-color: #ccd5e3;
+    background: #EDF0F5;
+    color: #495057;
+    box-shadow: none;
+}
+
 .FooterNav {
     flex: 1;
     display: flex;
@@ -41,4 +62,8 @@
 
 .FooterNav li a:hover {
     color: #424951;
+}
+
+.FooterFormGroup {
+    margin-bottom: 1.5rem;
 }

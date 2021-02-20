@@ -3,9 +3,14 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Container } from 'react-bo
 
 import styles from './Navigationbar.module.css';
 
-class NavigationBar extends Component {
+class NavigationBar extends Component {   
+
     render() {
-        console.log(styles);
+        const formNavClasses = [
+            "my-2", 
+            "my-lg-0",
+            styles.FormNavBar
+        ];
         return (
             <Navbar expand="lg" className={styles.NavBar}>
                 <Container>
@@ -25,8 +30,8 @@ class NavigationBar extends Component {
                             <Nav.Link href="#the-guide" className={styles.NavLink}>The Guide</Nav.Link>                            
                         </Nav>
                         <Nav className="ml-auto">
-                            <Form inline>
-                                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                            <Form className={formNavClasses.join(" ")} inline>
+                                <FormControl type="text" placeholder="Search" className="" onClick={this.onOpenSearchBox} />
                             </Form>
                             <Nav.Link className={styles.NavLink} href="#sign-in">Sign in</Nav.Link>
                             <Nav.Link className={styles.NavLink} href="#sign-up">Sign up</Nav.Link>                            

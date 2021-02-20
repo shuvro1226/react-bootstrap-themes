@@ -18,6 +18,7 @@
 
 .ThemesCardHeading a {
     margin-left: 20px;
+    line-height: 1.5;
 }
 
 .ThemesCardHeading a:hover {

@@ -5,7 +5,7 @@ import styles from './Banner.module.css';
 
 const Banner = (props) => (
     <section className={styles.Banner}>
-        <Container className="text-center my-4">
+        <Container className="text-center">
             <Image src="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/elements/bootstrap-stack.png" />
             <h1 className="display-1 text-bold">Build anything</h1>
             <h5 className="text-gray-soft text-regular">Themes built by or reviewed by Bootstrap's creators.</h5>
