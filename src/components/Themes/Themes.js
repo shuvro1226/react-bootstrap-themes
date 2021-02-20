@@ -10,10 +10,13 @@ import styles from './Themes.module.css';
 
 class Themes extends Component {
     state = {
-        themes: themesDefaultConfig
+        themes: themesDefaultConfig,
+        latestThemes: null,
+        popularThemes: null
     }
 
-    render() {
+    componentDidMount() {
+        // Sort themes by 'rating' and 'added_at' to get the Latest and popular themes
         let latestThemes = [
             ...this.state.themes
         ];
@@ -29,10 +32,11 @@ class Themes extends Component {
             }
         });
 
-        latestThemes = latestThemes.slice(0, 2);
+        const mostLatestThemes = latestThemes.slice(0, 2);
+        const updatedLatestThemes = latestThemes.splice(2, latestThemes.length);
 
         const popularThemes = [
-            ...this.state.themes
+            ...updatedLatestThemes
         ];
         popularThemes.sort((a,b) => {
             if (b.rating > a.rating) {
@@ -46,19 +50,66 @@ class Themes extends Component {
             }
         });
 
+        this.setState({
+            latestThemes: mostLatestThemes,
+            popularThemes: popularThemes
+        })
+    }
+
+    // To do actions when a mouse cursor comes over the theme card
+    onMouseEnterCard = (index, themeState) => {
+        const themeConfig = this.onGetThemeConfig(themeState);
+
+        const updatedThemeConfig = {
+            ...themeConfig[index],
+            showPrevBtn: true
+        };
+        themeConfig[index] = updatedThemeConfig;
+
+        this.onUpdateThemesState(themeState, themeConfig);
+    }
+
+    // To do actions when a mouse cursor leaves the theme card
+    onMouseLeaveCard = (index, themeState) => {
+        const themeConfig = this.onGetThemeConfig(themeState);        
+
+        const updatedThemeConfig = {
+            ...themeConfig[index],
+            showPrevBtn: false
+        };
+        themeConfig[index] = updatedThemeConfig;
+
+        this.onUpdateThemesState(themeState, themeConfig);
+    }
+
+    onUpdateThemesState = (state, config) => {
+        this.setState({
+            [state]: config
+        })
+    };
+
+    onGetThemeConfig = (themeState) => [ ...this.state[themeState] ];
+
+    render() {
         return (
             <main id="main">
                 <Banner />
                 <section className={styles.Themes}>
                     <Container>
-                        <ThemesHolder themes={latestThemes} 
+                        <ThemesHolder themes={this.state.latestThemes} 
                             title="Latest"
+                            themeState="latestThemes"
                             shortDesc="Most recently added to our collection."
-                            showViewAll={true} />
-                        <ThemesHolder themes={popularThemes} 
+                            showViewAll={true}
+                            mouseIn={this.onMouseEnterCard}
+                            mouseOut={this.onMouseLeaveCard} />
+                        <ThemesHolder themes={this.state.popularThemes} 
                             title="Popular"
+                            themeState="popularThemes"
                             shortDesc="Top-sellers in the past week!"
-                            showViewAll={false} />
+                            showViewAll={false}                            
+                            mouseIn={this.onMouseEnterCard}
+                            mouseOut={this.onMouseLeaveCard} />
                     </Container>
                 </section>
             </main>

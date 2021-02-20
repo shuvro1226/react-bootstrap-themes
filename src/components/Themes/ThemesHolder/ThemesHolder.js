@@ -14,7 +14,9 @@ const ThemesHolder = (props) => {
     if (props.themes) {
         themeCards = props.themes.map((theme, index) => {
             return <Col as="li" className="col-6" key={index + 1}>
-                <Theme theme={theme} />
+                <Theme theme={theme}
+                    mouseIn={() => props.mouseIn(index, props.themeState)}
+                    mouseOut={() => props.mouseOut(index, props.themeState)} />
             </Col>;
         });
     }

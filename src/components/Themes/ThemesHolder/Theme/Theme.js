@@ -6,14 +6,16 @@ import styles from './Theme.module.css';
 
 const Theme = (props) => {
 
-    let livePreviewClasses = "btn btn-brand btn-sm";
-    if (!props.showPrevBtn) {
+    let livePreviewClasses = "btn btn-brand btn-sm live-preview";
+    if (!props.theme.showPrevBtn) {
         livePreviewClasses += " d-none";
     }
 
     return (
         <Card className={styles.Card}>
-            <Card.Body className={styles.CardBody}>
+            <Card.Body className={styles.CardBody}
+                onMouseOver={props.mouseIn}
+                onMouseOut={props.mouseOut}>
                 <Card.Text>
                     <Card.Link href="#">
                         <Image src={props.theme.image_path} />
