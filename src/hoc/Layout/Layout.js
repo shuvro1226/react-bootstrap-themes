@@ -21,10 +21,7 @@ class Layout extends Component {
 
     onSearchThemes = (event) => {
         const searchText = event.target.value;
-        this.props.onFilterThemes(searchText.toLowerCase());  
-        this.setState({
-            searchText: searchText
-        });
+        this.onCategorySelect(searchText);
     }
 
     onCategorySelect = (category) => {

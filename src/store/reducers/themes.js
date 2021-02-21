@@ -52,43 +52,33 @@ const toggleThemePreview = (state, action) => {
 }
 
 const filterThemes = (state, action) => {
-    const latestThemes = [
-        ...state.latestThemes
+    const themeStates = [
+        'latestThemes',
+        'popularThemes'
     ];
-    const popularThemes = [
-        ...state.popularThemes
-    ];
-    const updatedLatestThemes = latestThemes.map(theme => {
-        let visible = false;
-        if (theme.name.toLowerCase().includes(action.filter) ||
-            theme.description.toLowerCase().includes(action.filter) ||
-            theme.category.toLowerCase().includes(action.filter)
-        ) {
-            visible = true;
-        }
-        return {
-            ...theme,
-            visible: visible
-        }
-    });
-    const updatedPopularThemes = popularThemes.map(theme => {
-        let visible = false;
-        if (theme.name.toLowerCase().includes(action.filter) ||
-            theme.description.toLowerCase().includes(action.filter) ||
-            theme.category.toLowerCase().includes(action.filter) ||
-            action.filter === ''
-        ) {
-            visible = true;
-        }
-        return {
-            ...theme,
-            visible: visible
-        }
-    });
+    let updatedThemes = [];
+    for (const themeState of themeStates) {
+        const themes = [
+            ...state[themeState]
+        ];
+        updatedThemes.push(themes.map(theme => {
+            let visible = false;
+            if (theme.name.toLowerCase().includes(action.filter) ||
+                theme.description.toLowerCase().includes(action.filter) ||
+                theme.category.toLowerCase().includes(action.filter)
+            ) {
+                visible = true;
+            }
+            return {
+                ...theme,
+                visible: visible
+            }
+        }));
+    }
     return {
         ...state,
-        latestThemes: updatedLatestThemes,
-        popularThemes: updatedPopularThemes
+        latestThemes: updatedThemes[0],
+        popularThemes: updatedThemes[1]
     }
 }
 

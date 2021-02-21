@@ -12,16 +12,6 @@ import * as actions from '../../store/actions/index';
 
 class Themes extends Component {    
 
-    // To do actions when a mouse cursor comes over the theme card
-    onMouseEnterCard = (index, themeState) => {
-        this.props.onToggleLivePreview(index, themeState, true);
-    }
-
-    // To do actions when a mouse cursor leaves the theme card
-    onMouseLeaveCard = (index, themeState) => {
-        this.props.onToggleLivePreview(index, themeState, false);        
-    }
-
     render() {
         let themeHolders = null;
         if (config.themeHolders && this.props.latestThemes && this.props.popularThemes) {
@@ -29,8 +19,8 @@ class Themes extends Component {
                 <ThemesHolder key={index+1}
                     themes={this.props[themeHolder.themeState]} 
                     themeHolder={themeHolder}
-                    mouseIn={this.onMouseEnterCard}
-                    mouseOut={this.onMouseLeaveCard} />
+                    mouseIn={this.props.onToggleLivePreview}
+                    mouseOut={this.props.onToggleLivePreview} />
             ))
         }
 
