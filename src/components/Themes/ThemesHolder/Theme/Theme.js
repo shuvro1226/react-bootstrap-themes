@@ -12,12 +12,6 @@ const Theme = (props) => {
         livePreviewClasses += " d-none";
     }
 
-    const ratingClasses = [
-        "d-none",
-        "d-md-block",
-        styles.Rating
-    ];
-
     return (
         <Card className={styles.Card}>
             <Card.Body className={styles.CardBody}
@@ -54,7 +48,7 @@ const Theme = (props) => {
                         </span>
                     </p>
                     <ReactStars
-                        classNames={ratingClasses.join(" ")}
+                        classNames={styles.Rating}
                         count={5}
                         value={props.theme.rating}
                         size={18}

@@ -12,7 +12,8 @@ export const config = {
             price: 59.00,
             showPrevBtn: false,
             added_at: '2021-02-18T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 5
         },
         {
             name: 'AppStack',
@@ -24,7 +25,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-16T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 3
         },
         {
             name: 'Front',
@@ -36,7 +38,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-15T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 23
         },
         {
             name: 'Hyper',
@@ -48,7 +51,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-14T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 25
         },
         {
             name: 'Cube',
@@ -60,7 +64,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-17T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 15
         },
         {
             name: 'Landkit',
@@ -72,7 +77,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-13T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 32
         },
         {
             name: 'Dashkit',
@@ -84,7 +90,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-12T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 34
         },
         {
             name: 'Keen',
@@ -96,7 +103,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-11T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 25
         },
         {
             name: 'Cartzilla',
@@ -108,7 +116,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-10T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 21
         },
         {
             name: 'Front',
@@ -120,7 +129,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-09T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 22
         },
         {
             name: 'Falcon',
@@ -132,7 +142,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-08T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 26
         },
         {
             name: 'Falcon',
@@ -144,7 +155,8 @@ export const config = {
             price: 49.00,
             showPrevBtn: false,
             added_at: '2021-02-07T23:47:54Z',
-            visible: true
+            visible: true,
+            totalSold: 29
         }
     ],
     categories: [ 

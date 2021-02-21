@@ -67,7 +67,7 @@
 }
 
 .Rating {
-    display: flex;
+    display: none;
     line-height: 1;
 }
 
@@ -90,5 +90,8 @@
     }
     .CardFooterItem:last-child {
         text-align: right;
+    }
+    .Rating {
+        display: flex;
     }
 }

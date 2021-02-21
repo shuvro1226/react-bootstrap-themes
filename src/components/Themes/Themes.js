@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 
 import ThemesHolder from './ThemesHolder/ThemesHolder';
 import Banner from '../Banner/Banner';
-import moment from 'moment';
 
 import styles from './Themes.module.css';
 
@@ -30,41 +29,33 @@ class Themes extends Component {
     }
 
     onUpdateThemes = () => {
-        let latestThemes = [
+        const themes = [
             ...this.props.themes
         ];
-        latestThemes.sort((a,b) => {
-            if (moment(a.added_at).isBefore(b.added_at)) {
-                return 1;
-            } else {
-                if (moment(a.added_at).isAfter(b.added_at)) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            }
+        themes.sort((a,b) => {
+            return (Date.parse(b.added_at) > Date.parse(a.added_at)) 
+                ? 1
+                : (Date.parse(a.added_at) > Date.parse(b.added_at)) 
+                    ? -1 
+                    : 0;
         });
 
-        const mostLatestThemes = latestThemes.slice(0, 2);
-        const updatedLatestThemes = latestThemes.splice(2, latestThemes.length);
+        const latestThemes = themes.slice(0, 2);
+        const updatedThemes = themes.splice(2, themes.length);
 
         const popularThemes = [
-            ...updatedLatestThemes
+            ...updatedThemes
         ];
         popularThemes.sort((a,b) => {
-            if (b.rating > a.rating) {
-                return 1;
-            } else {
-                if (a.rating > b.rating) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            }
+            return (b.totalSold > a.totalSold) 
+                ? 1 
+                : (a.totalSold > b.totalSold) 
+                    ? -1 
+                    : 0;
         });
 
         this.setState({
-            latestThemes: mostLatestThemes,
+            latestThemes: latestThemes,
             popularThemes: popularThemes
         })
     }

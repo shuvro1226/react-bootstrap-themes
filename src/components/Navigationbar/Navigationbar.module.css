@@ -40,7 +40,9 @@
     position: absolute;
     width: 16px;
     height: 16px;
+    left: 4px;
     top: calc(50% - 8px);
+    transform: scale(0.9);
     opacity: 0.4;
     color: #cccccc;
     content: url('../../assets/img/searchicon.png');

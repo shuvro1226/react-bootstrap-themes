@@ -35,7 +35,7 @@ const Footer = (props) => {
                         <div className="d-md-flex justify-content-between align-items-center">
                             <div className={footerFormGroupStyles.join(" ")}>
                                 <h5 className="mb-1">Get new themes in your inbox!</h5>
-                                <div className="form-text mt-0">New themes or big discounts. Never spam.</div>
+                                <div className={styles.FooterFormText}>New themes or big discounts. Never spam.</div>
                             </div>
                             <div className="d-flex align-items-start">
                                 <div className={footerFormGroupStyles.join(" ") + " w-100 mr-2"}>
