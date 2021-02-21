@@ -219,6 +219,10 @@ export const config = {
     ],
     banner: {
         title: "Build anything",
-        subTitle: "Themes built by or reviewed by Bootstrap's creators."
+        subTitle: "Themes built by or reviewed by Bootstrap's creators.",
+        bannerLink: {
+            displayText: "Why our themes?",
+            link: "official-themes"
+        } 
     }
 };

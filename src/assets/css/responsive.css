@@ -1,0 +1,12 @@
+@media (max-width: 767px) {
+    h5,
+    .h5 {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown-toggle::after {
+        display: none;
+    }
+}

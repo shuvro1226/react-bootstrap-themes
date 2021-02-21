@@ -116,16 +116,3 @@ p:last-child {
 .border-bottom {
     border-bottom: 1px solid #E5E9EF;
 }
-
-@media (max-width: 767px) {
-    h5,
-    .h5 {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 992px) {
-    .dropdown-toggle::after {
-        display: none;
-    }
-}

@@ -38,7 +38,7 @@ const ThemesHolder = (props) => {
     return (
         <div className={styles.ThemesHolder}>
             <div className={styles.ThemesCardHeading}>
-                <div>
+                <div className="d-block">
                     <h5 className={styles.ThemeCardsTitle}>{props.themeHolder.type}</h5>
                     <p className="text-gray-soft">{props.themeHolder.description}</p>
                 </div>

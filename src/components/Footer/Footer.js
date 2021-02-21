@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, FormControl } from 'react-bootstrap';
 
 import { config } from '../../config/config';
 
@@ -39,7 +39,7 @@ const Footer = (props) => {
                             </div>
                             <div className="d-flex align-items-start">
                                 <div className={footerFormGroupStyles.join(" ") + " w-100 mr-2"}>
-                                    <input className="form-control" name="EMAIL" type="email" aria-describedby="footerEmail" placeholder="Email address" />
+                                    <FormControl name="email" type="email" placeholder="Email address" />
                                 </div>
                                 <Button className="btn btn-brand" type="submit" value="Subscribe" name="subscibe">Subscribe</Button>
                             </div>
