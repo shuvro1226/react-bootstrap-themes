@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Container } from 'react-bootstrap';
 
-import { categories } from '../../config/categories';
+import { config } from '../../config/config';
 
 import styles from './Navigationbar.module.css';
 
@@ -16,8 +16,8 @@ class NavigationBar extends Component {
         ];
 
         let categoriesList = null;
-        if (categories) {
-            categoriesList = categories.map((category, index) => (
+        if (config.categories) {
+            categoriesList = config.categories.map((category, index) => (
                 <NavDropdown.Item 
                     key={index+1}
                     className={styles.NavDropdownItem} 

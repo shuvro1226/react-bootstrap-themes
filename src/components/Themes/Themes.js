@@ -7,6 +7,8 @@ import moment from 'moment';
 
 import styles from './Themes.module.css';
 
+import { config } from '../../config/config';
+
 class Themes extends Component {
     state = {
         latestThemes: null,
@@ -102,25 +104,24 @@ class Themes extends Component {
     onGetThemeConfig = (themeState) => [ ...this.state[themeState] ];
 
     render() {
+
+        let themeHolders = null;
+        if (config.themeHolders && this.state.latestThemes && this.state.popularThemes) {
+            themeHolders = config.themeHolders.map((themeHolder, index) => (
+                <ThemesHolder key={index+1}
+                    themes={this.state[themeHolder.themeState]} 
+                    themeHolder={themeHolder}
+                    mouseIn={this.onMouseEnterCard}
+                    mouseOut={this.onMouseLeaveCard} />
+            ))
+        }
+
         return (
             <main id="main">
                 <Banner />
                 <section className={styles.Themes}>
                     <Container>
-                        <ThemesHolder themes={this.state.latestThemes} 
-                            title="Latest"
-                            themeState="latestThemes"
-                            shortDesc="Most recently added to our collection."
-                            showViewAll={true}
-                            mouseIn={this.onMouseEnterCard}
-                            mouseOut={this.onMouseLeaveCard} />
-                        <ThemesHolder themes={this.state.popularThemes} 
-                            title="Popular"
-                            themeState="popularThemes"
-                            shortDesc="Top-sellers in the past week!"
-                            showViewAll={false}                            
-                            mouseIn={this.onMouseEnterCard}
-                            mouseOut={this.onMouseLeaveCard} />
+                        {themeHolders}
                     </Container>
                 </section>
             </main>

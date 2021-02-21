@@ -49,7 +49,7 @@ const Theme = (props) => {
                 <div className={styles.CardFooterItem}>
                     <p>
                         <span className="amount">
-                            <span className="woocommerce-Price-currencySymbol">$</span>
+                            <span>{props.theme.currency}</span>
                             {props.theme.price.toFixed(2)}
                         </span>
                     </p>

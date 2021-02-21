@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { themesDefaultConfig } from '../../config/themes';
+import { config } from '../../config/config';
 
 import Themes from '../../components/Themes/Themes';
 import NavigationBar from '../../components/Navigationbar/Navigationbar';
@@ -7,7 +7,7 @@ import Wrapper from '../Wrapper/Wrapper';
 
 class Layout extends Component {
     state = {
-        themes: themesDefaultConfig,
+        themes: config.themesDefaultConfig,
         searchText: ''
     }
 
