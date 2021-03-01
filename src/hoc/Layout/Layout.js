@@ -1,63 +1,34 @@
 import React, { Component } from 'react';
-import { config } from '../../config/config';
+import { connect } from 'react-redux';
 
 import Themes from '../../components/Themes/Themes';
 import NavigationBar from '../../components/Navigationbar/Navigationbar';
 import Wrapper from '../Wrapper/Wrapper';
+import * as actions from '../../store/actions/index';
 
 class Layout extends Component {
     state = {
-        themes: config.themesDefaultConfig,
         searchText: ''
     }
 
     componentDidMount() {
         document.title = "Bootstrap Themes Built & Curated by the Bootstrap Team.";
+
+        if (this.props.themes) {
+            this.props.onSortThemes();
+        }
     }
 
     onSearchThemes = (event) => {
-        const searchText = event.target.value.toLowerCase();
-        const themesConfig = [
-            ...this.state.themes
-        ];
-        const updatedThemesConfig = themesConfig.map(theme => {
-            let visible = false;
-            if (theme.name.toLowerCase().includes(searchText) || 
-                theme.description.toLowerCase().includes(searchText) || 
-                theme.category.toLowerCase().includes(searchText)
-            ) {
-                visible = true;
-            }
-            return {
-                ...theme,
-                visible: visible
-            }
-        })
-        console.log(searchText);
-        this.setState({
-            themes: updatedThemesConfig,
-            searchText: searchText
-        })
+        const searchText = event.target.value;
+        this.onCategorySelect(searchText);
     }
 
     onCategorySelect = (category) => {
-        const themesConfig = [
-            ...this.state.themes
-        ];
-        const updatedThemesConfig = themesConfig.map(theme => {
-            let visible = false;
-            if (theme.category.toLowerCase() === category.toLowerCase() || category === '') {
-                visible = true;
-            }
-            return {
-                ...theme,
-                visible: visible
-            }
-        })
+        this.props.onFilterThemes(category.toLowerCase());
         this.setState({
-            themes: updatedThemesConfig,
             searchText: category
-        })
+        });
     }
 
     render() {
@@ -67,13 +38,24 @@ class Layout extends Component {
                     searchThemes={this.onSearchThemes}
                     searchText={this.state.searchText}
                     filterByCategories={this.onCategorySelect} />
-                <Themes 
-                    themes={this.state.themes}
-                    searchText={this.state.searchText} />
+                <Themes />
                 {this.props.children}
             </Wrapper>
         )
     }
 }
 
-export default Layout;
+const mapStateToProps = (state) => {
+    return {
+        themes: state.themes
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSortThemes: () => dispatch(actions.sortThemes()),
+        onFilterThemes: (filter) => dispatch(actions.filterThemes(filter))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

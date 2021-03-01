@@ -21,8 +21,8 @@ const ThemesHolder = (props) => {
             if (theme.visible) {
                 const themeCard = <Col as="li" className="col-6" key={index + 1}>
                     <Theme theme={theme}
-                        mouseIn={() => props.mouseIn(index, props.themeHolder.themeState)}
-                        mouseOut={() => props.mouseOut(index, props.themeHolder.themeState)} />
+                        mouseIn={() => props.mouseIn(index, props.themeHolder.themeState, true)}
+                        mouseOut={() => props.mouseOut(index, props.themeHolder.themeState, false)} />
                 </Col>;
                 themes.push(themeCard);
             }
